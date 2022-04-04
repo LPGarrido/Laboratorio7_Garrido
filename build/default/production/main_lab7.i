@@ -2653,11 +2653,11 @@ extern __bank0 __bit __timeout;
 # 11 "./setup_lab7_h.h"
 extern void setup(void);
 # 34 "main_lab7.c" 2
-# 49 "main_lab7.c"
+# 50 "main_lab7.c"
 uint8_t conteo = 0;
 uint8_t banderas = 0;
 uint8_t valores[3]={0,0,0};
-uint8_t display[3]={0,0,0};;
+uint8_t display[3]={0,0,0};
 
 
 
@@ -2697,7 +2697,7 @@ void main(void) {
     }
     return;
 }
-# 101 "main_lab7.c"
+# 102 "main_lab7.c"
 void RESET_TMR0(uint8_t TMR_VAR){
     TMR0 = TMR_VAR;
     INTCONbits.T0IF = 0;
@@ -2759,9 +2759,11 @@ void set_display(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2){
 }
 
 void mostrar_valor(uint8_t DISPLAY0, uint8_t DISPLAY1, uint8_t DISPLAY2){
+
     PORTDbits.RD0 = 0;
     PORTDbits.RD1 = 0;
     PORTDbits.RD2 = 0;
+
     switch (banderas)
      {
           case 0:
@@ -2769,7 +2771,6 @@ void mostrar_valor(uint8_t DISPLAY0, uint8_t DISPLAY1, uint8_t DISPLAY2){
             PORTDbits.RD0 = 1;
             banderas = 1;
             return;
-
           case 1:
             PORTC = DISPLAY1;
             PORTDbits.RD1 = 1;

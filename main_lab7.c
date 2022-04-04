@@ -37,43 +37,44 @@
  * CONSTANTES 
  ------------------------------------------------------------------------------*/
 //#define _XTAL_FREQ 4000000
-#define B1 PORTBbits.RB0     // Asignamos un alias a RB0
-#define B2 PORTBbits.RB1     // Asignamos un alias a RB1
-#define EN_D0 PORTDbits.RD0
+// Asignamos un alias a los pines
+#define B1 PORTBbits.RB0     
+#define B2 PORTBbits.RB1     
+#define EN_D0 PORTDbits.RD0  
 #define EN_D1 PORTDbits.RD1
 #define EN_D2 PORTDbits.RD2
 
 /*------------------------------------------------------------------------------
  * VARIABLES 
  ------------------------------------------------------------------------------*/
-uint8_t conteo = 0; 
-uint8_t banderas = 0; 
-uint8_t valores[3]={0,0,0};
-uint8_t display[3]={0,0,0};;
+uint8_t conteo = 0;             // LAB sirve para el conteo cada 100ms
+uint8_t banderas = 0;           // banderas para el display
+uint8_t valores[3]={0,0,0};     // unidades, decenas y centenas del valor
+uint8_t display[3]={0,0,0};     // valor a colocar en los displays
 /*------------------------------------------------------------------------------
  * PROTOTIPO DE FUNCIONES 
  ------------------------------------------------------------------------------*/
-void RESET_TMR0(uint8_t TMR_VAR);
-void obtener_valor(uint8_t VALOR);
-uint8_t TABLA(uint8_t VALOR);
-void set_display(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2);
-void mostrar_valor(uint8_t DISPLAY0, uint8_t DISPLAY1, uint8_t DISPLAY2);
+void RESET_TMR0(uint8_t TMR_VAR);   // resetear tmr0
+void obtener_valor(uint8_t VALOR);  // obtener uni,dec,cen del valor
+uint8_t TABLA(uint8_t VALOR);       // Tabla para saber que valor del display
+void set_display(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2);     // Seleccionar valor para el display
+void mostrar_valor(uint8_t DISPLAY0, uint8_t DISPLAY1, uint8_t DISPLAY2);   // Mostrar valor en el display
 
 /*------------------------------------------------------------------------------
  * INTERRUPCIONES 
  ------------------------------------------------------------------------------*/
 void __interrupt() isr (void){
     if(INTCONbits.RBIF){            // Fue interrupción del PORTB
-        if(!B1)                 // Verificamos si fue RB0 quien generó la interrupción
-            PORTA++;                // Incremento del PORTC (INCF PORTC) 
-        else if (!B2)
-            PORTA--;
-        INTCONbits.RBIF = 0;    // Limpiamos bandera de interrupción
+        if(!B1)                     // Verificamos si fue RB0 quien generó la interrupción
+            PORTA++;                // Incrementar PORTA 
+        else if (!B2)               // Si es RB2
+            PORTA--;                // Decrementar PORTA
+        INTCONbits.RBIF = 0;        // Limpiamos bandera de interrupción
     }
     else if (INTCONbits.T0IF){
-        RESET_TMR0(254);
-        //conteo++;
-        mostrar_valor(display[0],display[1],display[2]);
+        RESET_TMR0(254);            // Reseteo cada 2 ms
+        //conteo++;                 // LAB
+        mostrar_valor(display[0],display[1],display[2]);    //Mostrar valor cada 2ms
     }
     return;
 }
@@ -84,8 +85,8 @@ void __interrupt() isr (void){
 void main(void) {
     setup();                        // Llamamos a la función de configuraciones
     while(1){
-        obtener_valor(PORTA);
-        set_display(valores[0],valores[1],valores[2]);
+        obtener_valor(PORTA);       // Valor para el PORTA
+        set_display(valores[0],valores[1],valores[2]);  // seteo del display
     }
     return;
 }
@@ -100,14 +101,14 @@ void main(void) {
 
 void RESET_TMR0(uint8_t TMR_VAR){
     TMR0 = TMR_VAR;                 // TMR0 = valor
-    INTCONbits.T0IF = 0;        // Limpiamos bandera de interrupción
+    INTCONbits.T0IF = 0;            // Limpiamos bandera de interrupción
     return;
 }
 
 void obtener_valor(uint8_t VALOR){
-    valores[2] = VALOR/100;
-    valores[1] = (VALOR-valores[2]*100)/10;
-    valores[0] = VALOR-valores[2]*100-valores[1]*10;
+    valores[2] = VALOR/100;                             // centenas
+    valores[1] = (VALOR-valores[2]*100)/10;             // decenas
+    valores[0] = VALOR-valores[2]*100-valores[1]*10;    // unidades
 }
 
 uint8_t TABLA(uint8_t VALOR){
@@ -115,53 +116,55 @@ uint8_t TABLA(uint8_t VALOR){
     switch (i)
      {
           case 0:
-             return 0b00111111;
+             return 0b00111111;     // 0
           case 1:
-             return 0b00000110;
+             return 0b00000110;     // 1
           case 2:
-             return 0b01011011;
+             return 0b01011011;     // 2
           case 3:
-             return 0b01001111;
+             return 0b01001111;     // 3
           case 4:
-             return 0b01100110;
+             return 0b01100110;     // 4
           case 5:
-             return 0b01101101;
+             return 0b01101101;     // 5
           case 6:
-             return 0b01111101;
+             return 0b01111101;     // 6
           case 7:
-             return 0b00000111;
+             return 0b00000111;     // 7
           case 8:
-             return 0b01111111;
+             return 0b01111111;     // 8
           case 9:
-             return 0b01101111;
+             return 0b01101111;     // 9
           case 10:
-             return 0b01110111;
+             return 0b01110111;     // A
           case 11:
-             return 0b01111100;
+             return 0b01111100;     // B
           case 12:
-             return 0b00111001;
+             return 0b00111001;     // C
           case 13:
-             return 0b01011110;
+             return 0b01011110;     // D
           case 14:
-             return 0b01111001;
+             return 0b01111001;     // E
           case 15:
-             return 0b01110001;
+             return 0b01110001;     // F
           default:
-             return 0b10000000;
+             return 0b10000000;     // default
      }
 }
 
 void set_display(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2){
-    display[0] = TABLA(VALORES2);
-    display[1] = TABLA(VALORES1);
-    display[2] = TABLA(VALORES0);
+    display[0] = TABLA(VALORES2);       // valor del display para cen
+    display[1] = TABLA(VALORES1);       // valor del display para dec
+    display[2] = TABLA(VALORES0);       // valor del display para uni
     return;
 }
 
 void mostrar_valor(uint8_t DISPLAY0, uint8_t DISPLAY1, uint8_t DISPLAY2){
+    // limpiar enables
     EN_D0 = 0;
     EN_D1 = 0;
     EN_D2 = 0;
+    // segun la bandera mostrar display
     switch (banderas)
      {
           case 0:
@@ -169,7 +172,6 @@ void mostrar_valor(uint8_t DISPLAY0, uint8_t DISPLAY1, uint8_t DISPLAY2){
             EN_D0 = 1;
             banderas = 1;
             return;
-            
           case 1:
             PORTC = DISPLAY1;
             EN_D1 = 1;

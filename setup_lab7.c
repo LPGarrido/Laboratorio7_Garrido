@@ -18,8 +18,8 @@ void setup(void){
     PORTA = 0;                  // Limpiamos PORTA
     TRISC = 0;                  // PORTC como salida
     PORTC = 0;                  // Limpiamos PORTC
-    TRISD = 0;                  // PORTC como salida
-    PORTD = 0;                  // Limpiamos PORTC
+    TRISD = 0;                  // PORTD como salida
+    PORTD = 0;                  // Limpiamos PORTD
     TRISB = 0xFF;               // RB0 como entrada (configurada en decimal)
 
     OPTION_REGbits.nRBPU = 0;   // Habilitamos resistencias de pull-up del PORTB

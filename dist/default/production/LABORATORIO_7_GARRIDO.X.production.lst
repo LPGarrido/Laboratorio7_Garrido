@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.35 build 20211206165544 
-                                                                                               Sun Apr 03 18:51:49 2022
+                                                                                               Sun Apr 03 19:19:28 2022
 
 Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1 
      1                           	processor	16F887
@@ -526,7 +526,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    512 ;;
    513 ;; *************** function _main *****************
    514 ;; Defined at:
-   515 ;;		line 84 in file "main_lab7.c"
+   515 ;;		line 85 in file "main_lab7.c"
    516 ;; Parameters:    Size  Location     Type
    517 ;;		None
    518 ;; Auto vars:     Size  Location     Type
@@ -563,20 +563,20 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    549                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
    550                           
    551                           
-   552                           ;main_lab7.c: 85:     setup();
+   552                           ;main_lab7.c: 86:     setup();
    553  0239  120A  118A  2187  120A  118A  	fcall	_setup
    554  023E                     l46:	
-   555                           ;main_lab7.c: 86:     while(1){
+   555                           ;main_lab7.c: 87:     while(1){
    556                           
    557                           
-   558                           ;main_lab7.c: 87:         obtener_valor(PORTA);
+   558                           ;main_lab7.c: 88:         obtener_valor(PORTA);
    559  023E  1283               	bcf	3,5	;RP0=0, select bank0
    560  023F  1303               	bcf	3,6	;RP1=0, select bank0
    561  0240  0805               	movf	5,w	;volatile
    562  0241  120A  118A  20ED  120A  118A  	fcall	_obtener_valor
    563  0246                     l1298:
    564                           
-   565                           ;main_lab7.c: 88:         set_display(valores[0],valores[1],valores[2]);
+   565                           ;main_lab7.c: 89:         set_display(valores[0],valores[1],valores[2]);
    566  0246  1283               	bcf	3,5	;RP0=0, select bank0
    567  0247  1303               	bcf	3,6	;RP1=0, select bank0
    568  0248  083A               	movf	_valores+1,w
@@ -758,7 +758,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    744  0214                     __ptext2:	
    745 ;; *************** function _set_display *****************
    746 ;; Defined at:
-   747 ;;		line 154 in file "main_lab7.c"
+   747 ;;		line 155 in file "main_lab7.c"
    748 ;; Parameters:    Size  Location     Type
    749 ;;  VALORES0        1    wreg     unsigned char 
    750 ;;  VALORES1        1    4[BANK0 ] unsigned char 
@@ -800,7 +800,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    786  0216  00A7               	movwf	set_display@VALORES0
    787  0217                     l1276:
    788                           
-   789                           ;main_lab7.c: 155:     display[0] = TABLA(VALORES2);
+   789                           ;main_lab7.c: 156:     display[0] = TABLA(VALORES2);
    790  0217  0825               	movf	set_display@VALORES2,w
    791  0218  120A  118A  2088  120A  118A  	fcall	_TABLA
    792  021D  1283               	bcf	3,5	;RP0=0, select bank0
@@ -809,7 +809,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    795  0220  0826               	movf	??_set_display,w
    796  0221  00B6               	movwf	_display
    797                           
-   798                           ;main_lab7.c: 156:     display[1] = TABLA(VALORES1);
+   798                           ;main_lab7.c: 157:     display[1] = TABLA(VALORES1);
    799  0222  0824               	movf	set_display@VALORES1,w
    800  0223  120A  118A  2088  120A  118A  	fcall	_TABLA
    801  0228  1283               	bcf	3,5	;RP0=0, select bank0
@@ -818,7 +818,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    804  022B  0826               	movf	??_set_display,w
    805  022C  00B7               	movwf	_display+1
    806                           
-   807                           ;main_lab7.c: 157:     display[2] = TABLA(VALORES0);
+   807                           ;main_lab7.c: 158:     display[2] = TABLA(VALORES0);
    808  022D  0827               	movf	set_display@VALORES0,w
    809  022E  120A  118A  2088  120A  118A  	fcall	_TABLA
    810  0233  1283               	bcf	3,5	;RP0=0, select bank0
@@ -834,7 +834,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    820  0088                     __ptext3:	
    821 ;; *************** function _TABLA *****************
    822 ;; Defined at:
-   823 ;;		line 113 in file "main_lab7.c"
+   823 ;;		line 114 in file "main_lab7.c"
    824 ;; Parameters:    Size  Location     Type
    825 ;;  VALOR           1    wreg     unsigned char 
    826 ;; Auto vars:     Size  Location     Type
@@ -875,97 +875,97 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
    861  008A  00A2               	movwf	TABLA@VALOR
    862  008B                     l1032:
    863                           
-   864                           ;main_lab7.c: 114:     uint8_t i=VALOR;
+   864                           ;main_lab7.c: 115:     uint8_t i=VALOR;
    865  008B  0822               	movf	TABLA@VALOR,w
    866  008C  00A0               	movwf	??_TABLA
    867  008D  0820               	movf	??_TABLA,w
    868  008E  00A3               	movwf	TABLA@i
    869                           
-   870                           ;main_lab7.c: 115:     switch (i)
+   870                           ;main_lab7.c: 116:     switch (i)
    871  008F  28B2               	goto	l1104
    872  0090                     l1034:
    873                           
-   874                           ;main_lab7.c: 118:              return 0b00111111;
+   874                           ;main_lab7.c: 119:              return 0b00111111;
    875  0090  303F               	movlw	63
    876  0091  28EC               	goto	l60
    877  0092                     l1038:
    878                           
-   879                           ;main_lab7.c: 120:              return 0b00000110;
+   879                           ;main_lab7.c: 121:              return 0b00000110;
    880  0092  3006               	movlw	6
    881  0093  28EC               	goto	l60
    882  0094                     l1042:
    883                           
-   884                           ;main_lab7.c: 122:              return 0b01011011;
+   884                           ;main_lab7.c: 123:              return 0b01011011;
    885  0094  305B               	movlw	91
    886  0095  28EC               	goto	l60
    887  0096                     l1046:
    888                           
-   889                           ;main_lab7.c: 124:              return 0b01001111;
+   889                           ;main_lab7.c: 125:              return 0b01001111;
    890  0096  304F               	movlw	79
    891  0097  28EC               	goto	l60
    892  0098                     l1050:
    893                           
-   894                           ;main_lab7.c: 126:              return 0b01100110;
+   894                           ;main_lab7.c: 127:              return 0b01100110;
    895  0098  3066               	movlw	102
    896  0099  28EC               	goto	l60
    897  009A                     l1054:
    898                           
-   899                           ;main_lab7.c: 128:              return 0b01101101;
+   899                           ;main_lab7.c: 129:              return 0b01101101;
    900  009A  306D               	movlw	109
    901  009B  28EC               	goto	l60
    902  009C                     l1058:
    903                           
-   904                           ;main_lab7.c: 130:              return 0b01111101;
+   904                           ;main_lab7.c: 131:              return 0b01111101;
    905  009C  307D               	movlw	125
    906  009D  28EC               	goto	l60
    907  009E                     l1062:
    908                           
-   909                           ;main_lab7.c: 132:              return 0b00000111;
+   909                           ;main_lab7.c: 133:              return 0b00000111;
    910  009E  3007               	movlw	7
    911  009F  28EC               	goto	l60
    912  00A0                     l1066:
    913                           
-   914                           ;main_lab7.c: 134:              return 0b01111111;
+   914                           ;main_lab7.c: 135:              return 0b01111111;
    915  00A0  307F               	movlw	127
    916  00A1  28EC               	goto	l60
    917  00A2                     l1070:
    918                           
-   919                           ;main_lab7.c: 136:              return 0b01101111;
+   919                           ;main_lab7.c: 137:              return 0b01101111;
    920  00A2  306F               	movlw	111
    921  00A3  28EC               	goto	l60
    922  00A4                     l1074:
    923                           
-   924                           ;main_lab7.c: 138:              return 0b01110111;
+   924                           ;main_lab7.c: 139:              return 0b01110111;
    925  00A4  3077               	movlw	119
    926  00A5  28EC               	goto	l60
    927  00A6                     l1078:
    928                           
-   929                           ;main_lab7.c: 140:              return 0b01111100;
+   929                           ;main_lab7.c: 141:              return 0b01111100;
    930  00A6  307C               	movlw	124
    931  00A7  28EC               	goto	l60
    932  00A8                     l1082:
    933                           
-   934                           ;main_lab7.c: 142:              return 0b00111001;
+   934                           ;main_lab7.c: 143:              return 0b00111001;
    935  00A8  3039               	movlw	57
    936  00A9  28EC               	goto	l60
    937  00AA                     l1086:
    938                           
-   939                           ;main_lab7.c: 144:              return 0b01011110;
+   939                           ;main_lab7.c: 145:              return 0b01011110;
    940  00AA  305E               	movlw	94
    941  00AB  28EC               	goto	l60
    942  00AC                     l1090:
    943                           
-   944                           ;main_lab7.c: 146:              return 0b01111001;
+   944                           ;main_lab7.c: 147:              return 0b01111001;
    945  00AC  3079               	movlw	121
    946  00AD  28EC               	goto	l60
    947  00AE                     l1094:
    948                           
-   949                           ;main_lab7.c: 148:              return 0b01110001;
+   949                           ;main_lab7.c: 149:              return 0b01110001;
    950  00AE  3071               	movlw	113
    951  00AF  28EC               	goto	l60
    952  00B0                     l1098:
    953                           
-   954                           ;main_lab7.c: 150:              return 0b10000000;
+   954                           ;main_lab7.c: 151:              return 0b10000000;
    955  00B0  3080               	movlw	128
    956  00B1  28EC               	goto	l60
    957  00B2                     l1104:
@@ -1056,7 +1056,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1041  00ED                     __ptext4:	
   1042 ;; *************** function _obtener_valor *****************
   1043 ;; Defined at:
-  1044 ;;		line 107 in file "main_lab7.c"
+  1044 ;;		line 108 in file "main_lab7.c"
   1045 ;; Parameters:    Size  Location     Type
   1046 ;;  VALOR           1    wreg     unsigned char 
   1047 ;; Auto vars:     Size  Location     Type
@@ -1098,7 +1098,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1083  00EF  00B3               	movwf	obtener_valor@VALOR
   1084  00F0                     l1274:
   1085                           
-  1086                           ;main_lab7.c: 108:     valores[2] = VALOR/100;
+  1086                           ;main_lab7.c: 109:     valores[2] = VALOR/100;
   1087  00F0  3064               	movlw	100
   1088  00F1  00A6               	movwf	___awdiv@divisor
   1089  00F2  3000               	movlw	0
@@ -1118,7 +1118,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1103  0104  0831               	movf	??_obtener_valor+2,w
   1104  0105  00BB               	movwf	_valores+2
   1105                           
-  1106                           ;main_lab7.c: 109:     valores[1] = (VALOR-valores[2]*100)/10;
+  1106                           ;main_lab7.c: 110:     valores[1] = (VALOR-valores[2]*100)/10;
   1107  0106  300A               	movlw	10
   1108  0107  00A6               	movwf	___awdiv@divisor
   1109  0108  3000               	movlw	0
@@ -1152,7 +1152,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1137  012C  0831               	movf	??_obtener_valor+2,w
   1138  012D  00BA               	movwf	_valores+1
   1139                           
-  1140                           ;main_lab7.c: 110:     valores[0] = VALOR-valores[2]*100-valores[1]*10;
+  1140                           ;main_lab7.c: 111:     valores[0] = VALOR-valores[2]*100-valores[1]*10;
   1141  012E  309C               	movlw	156
   1142  012F  00AF               	movwf	??_obtener_valor
   1143  0130  082F               	movf	??_obtener_valor,w
@@ -1542,7 +1542,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1527  014D                     __ptext8:	
   1528 ;; *************** function _isr *****************
   1529 ;; Defined at:
-  1530 ;;		line 65 in file "main_lab7.c"
+  1530 ;;		line 66 in file "main_lab7.c"
   1531 ;; Parameters:    Size  Location     Type
   1532 ;;		None
   1533 ;; Auto vars:     Size  Location     Type
@@ -1576,7 +1576,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1561                           
   1562  014D                     i1l1280:
   1563                           
-  1564                           ;main_lab7.c: 66:     if(INTCONbits.RBIF){
+  1564                           ;main_lab7.c: 67:     if(INTCONbits.RBIF){
   1565  014D  1C0B               	btfss	11,0	;volatile
   1566  014E  2950               	goto	u37_21
   1567  014F  2951               	goto	u37_20
@@ -1585,7 +1585,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1570  0151                     u37_20:
   1571  0151                     i1l1282:
   1572                           
-  1573                           ;main_lab7.c: 67:         if(!PORTBbits.RB0)
+  1573                           ;main_lab7.c: 68:         if(!PORTBbits.RB0)
   1574  0151  1283               	bcf	3,5	;RP0=0, select bank0
   1575  0152  1303               	bcf	3,6	;RP1=0, select bank0
   1576  0153  1806               	btfsc	6,0	;volatile
@@ -1596,14 +1596,14 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1581  0157                     u38_20:
   1582  0157                     i1l1284:
   1583                           
-  1584                           ;main_lab7.c: 68:             PORTA++;
+  1584                           ;main_lab7.c: 69:             PORTA++;
   1585  0157  3001               	movlw	1
   1586  0158  00F5               	movwf	??_isr
   1587  0159  0875               	movf	??_isr,w
   1588  015A  0785               	addwf	5,f	;volatile
   1589  015B  2962               	goto	i1l1288
   1590  015C                     i1l36:	
-  1591                           ;main_lab7.c: 69:         else if (!PORTBbits.RB1)
+  1591                           ;main_lab7.c: 70:         else if (!PORTBbits.RB1)
   1592                           
   1593  015C  1886               	btfsc	6,1	;volatile
   1594  015D  295F               	goto	u39_21
@@ -1613,18 +1613,18 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1598  0160                     u39_20:
   1599  0160                     i1l1286:
   1600                           
-  1601                           ;main_lab7.c: 70:             PORTA--;
+  1601                           ;main_lab7.c: 71:             PORTA--;
   1602  0160  3001               	movlw	1
   1603  0161  0285               	subwf	5,f	;volatile
   1604  0162                     i1l1288:
   1605                           
-  1606                           ;main_lab7.c: 71:         INTCONbits.RBIF = 0;
+  1606                           ;main_lab7.c: 72:         INTCONbits.RBIF = 0;
   1607  0162  100B               	bcf	11,0	;volatile
   1608                           
-  1609                           ;main_lab7.c: 72:     }
+  1609                           ;main_lab7.c: 73:     }
   1610  0163  297E               	goto	i1l41
   1611  0164                     i1l35:	
-  1612                           ;main_lab7.c: 73:     else if (INTCONbits.T0IF){
+  1612                           ;main_lab7.c: 74:     else if (INTCONbits.T0IF){
   1613                           
   1614  0164  1D0B               	btfss	11,2	;volatile
   1615  0165  2967               	goto	u40_21
@@ -1634,12 +1634,12 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1619  0168                     u40_20:
   1620  0168                     i1l1290:
   1621                           
-  1622                           ;main_lab7.c: 74:         RESET_TMR0(254);
+  1622                           ;main_lab7.c: 75:         RESET_TMR0(254);
   1623  0168  30FE               	movlw	254
   1624  0169  120A  118A  2271  120A  118A  	fcall	_RESET_TMR0
   1625  016E                     i1l1292:
   1626                           
-  1627                           ;main_lab7.c: 76:         mostrar_valor(display[0],display[1],display[2]);
+  1627                           ;main_lab7.c: 77:         mostrar_valor(display[0],display[1],display[2]);
   1628  016E  1283               	bcf	3,5	;RP0=0, select bank0
   1629  016F  1303               	bcf	3,6	;RP1=0, select bank0
   1630  0170  0837               	movf	_display+1,w
@@ -1684,7 +1684,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1669  01BB                     __ptext9:	
   1670 ;; *************** function _mostrar_valor *****************
   1671 ;; Defined at:
-  1672 ;;		line 161 in file "main_lab7.c"
+  1672 ;;		line 162 in file "main_lab7.c"
   1673 ;; Parameters:    Size  Location     Type
   1674 ;;  DISPLAY0        1    wreg     unsigned char 
   1675 ;;  DISPLAY1        1    0[COMMON] unsigned char 
@@ -1723,45 +1723,45 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1708  01BB  00F4               	movwf	mostrar_valor@DISPLAY0
   1709  01BC                     i1l1188:
   1710                           
-  1711                           ;main_lab7.c: 162:     PORTDbits.RD0 = 0;
+  1711                           ;main_lab7.c: 164:     PORTDbits.RD0 = 0;
   1712  01BC  1283               	bcf	3,5	;RP0=0, select bank0
   1713  01BD  1303               	bcf	3,6	;RP1=0, select bank0
   1714  01BE  1008               	bcf	8,0	;volatile
   1715                           
-  1716                           ;main_lab7.c: 163:     PORTDbits.RD1 = 0;
+  1716                           ;main_lab7.c: 165:     PORTDbits.RD1 = 0;
   1717  01BF  1088               	bcf	8,1	;volatile
   1718                           
-  1719                           ;main_lab7.c: 164:     PORTDbits.RD2 = 0;
+  1719                           ;main_lab7.c: 166:     PORTDbits.RD2 = 0;
   1720  01C0  1108               	bcf	8,2	;volatile
   1721                           
-  1722                           ;main_lab7.c: 165:     switch (banderas)
+  1722                           ;main_lab7.c: 168:     switch (banderas)
   1723  01C1  29D9               	goto	i1l1222
   1724  01C2                     i1l1190:
   1725                           
-  1726                           ;main_lab7.c: 168:             PORTC = DISPLAY0;
+  1726                           ;main_lab7.c: 171:             PORTC = DISPLAY0;
   1727  01C2  0874               	movf	mostrar_valor@DISPLAY0,w
   1728  01C3  0087               	movwf	7	;volatile
   1729  01C4                     i1l1192:
   1730                           
-  1731                           ;main_lab7.c: 169:             PORTDbits.RD0 = 1;
+  1731                           ;main_lab7.c: 172:             PORTDbits.RD0 = 1;
   1732  01C4  1408               	bsf	8,0	;volatile
   1733  01C5                     i1l1194:
   1734                           
-  1735                           ;main_lab7.c: 170:             banderas = 1;
+  1735                           ;main_lab7.c: 173:             banderas = 1;
   1736  01C5  01FA               	clrf	_banderas
   1737  01C6  0AFA               	incf	_banderas,f
   1738  01C7  29EC               	goto	i1l85
   1739  01C8                     i1l1198:
   1740                           
-  1741                           ;main_lab7.c: 174:             PORTC = DISPLAY1;
+  1741                           ;main_lab7.c: 176:             PORTC = DISPLAY1;
   1742  01C8  0870               	movf	mostrar_valor@DISPLAY1,w
   1743  01C9  0087               	movwf	7	;volatile
   1744  01CA                     i1l1200:
   1745                           
-  1746                           ;main_lab7.c: 175:             PORTDbits.RD1 = 1;
+  1746                           ;main_lab7.c: 177:             PORTDbits.RD1 = 1;
   1747  01CA  1488               	bsf	8,1	;volatile
   1748                           
-  1749                           ;main_lab7.c: 176:             banderas = 2;
+  1749                           ;main_lab7.c: 178:             banderas = 2;
   1750  01CB  3002               	movlw	2
   1751  01CC  00F2               	movwf	??_mostrar_valor
   1752  01CD  0872               	movf	??_mostrar_valor,w
@@ -1769,26 +1769,26 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1754  01CF  29EC               	goto	i1l85
   1755  01D0                     i1l1204:
   1756                           
-  1757                           ;main_lab7.c: 179:             PORTC = DISPLAY2;
+  1757                           ;main_lab7.c: 181:             PORTC = DISPLAY2;
   1758  01D0  0871               	movf	mostrar_valor@DISPLAY2,w
   1759  01D1  0087               	movwf	7	;volatile
   1760  01D2                     i1l1206:
   1761                           
-  1762                           ;main_lab7.c: 180:             PORTDbits.RD2 = 1;
+  1762                           ;main_lab7.c: 182:             PORTDbits.RD2 = 1;
   1763  01D2  1508               	bsf	8,2	;volatile
   1764  01D3                     i1l1208:
   1765                           
-  1766                           ;main_lab7.c: 181:             banderas = 0;
+  1766                           ;main_lab7.c: 183:             banderas = 0;
   1767  01D3  01FA               	clrf	_banderas
   1768  01D4  29EC               	goto	i1l85
   1769  01D5                     i1l1212:
   1770                           
-  1771                           ;main_lab7.c: 184:             PORTC = 0b10000000;
+  1771                           ;main_lab7.c: 186:             PORTC = 0b10000000;
   1772  01D5  3080               	movlw	128
   1773  01D6  0087               	movwf	7	;volatile
   1774  01D7                     i1l1214:
   1775                           
-  1776                           ;main_lab7.c: 185:             PORTDbits.RD0 = 1;
+  1776                           ;main_lab7.c: 187:             PORTDbits.RD0 = 1;
   1777  01D7  1408               	bsf	8,0	;volatile
   1778  01D8  29D3               	goto	i1l1208
   1779  01D9                     i1l1222:
@@ -1840,7 +1840,7 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1824  0271                     __ptext10:	
   1825 ;; *************** function _RESET_TMR0 *****************
   1826 ;; Defined at:
-  1827 ;;		line 101 in file "main_lab7.c"
+  1827 ;;		line 102 in file "main_lab7.c"
   1828 ;; Parameters:    Size  Location     Type
   1829 ;;  TMR_VAR         1    wreg     unsigned char 
   1830 ;; Auto vars:     Size  Location     Type
@@ -1877,14 +1877,14 @@ Microchip MPLAB XC8 C Compiler v2.35 (Free license) build 20211206165544 Og1
   1861  0271  00F0               	movwf	RESET_TMR0@TMR_VAR
   1862  0272                     i1l1182:
   1863                           
-  1864                           ;main_lab7.c: 102:     TMR0 = TMR_VAR;
+  1864                           ;main_lab7.c: 103:     TMR0 = TMR_VAR;
   1865  0272  0870               	movf	RESET_TMR0@TMR_VAR,w
   1866  0273  1283               	bcf	3,5	;RP0=0, select bank0
   1867  0274  1303               	bcf	3,6	;RP1=0, select bank0
   1868  0275  0081               	movwf	1	;volatile
   1869  0276                     i1l1184:
   1870                           
-  1871                           ;main_lab7.c: 103:     INTCONbits.T0IF = 0;
+  1871                           ;main_lab7.c: 104:     INTCONbits.T0IF = 0;
   1872  0276  110B               	bcf	11,2	;volatile
   1873  0277                     i1l52:
   1874  0277  0008               	return
@@ -2113,7 +2113,7 @@ DATA                 0      0      28      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.35 build 20211206165544 
-Symbol Table                                                                                   Sun Apr 03 18:51:49 2022
+Symbol Table                                                                                   Sun Apr 03 19:19:28 2022
 
          ___bmul@product 0022                       l60 00EC                       l46 023E  
                      l55 014C                       l80 0238             ___awdiv@sign 002C  
