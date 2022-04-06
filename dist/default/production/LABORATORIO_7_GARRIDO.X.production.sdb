@@ -17,19 +17,19 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"66 C:\Users\Dell\Documents\UVG\3 Año\5 Semestre\Programación de Microcontroladores\Lab\Laboratorio7\LABORATORIO_7_GARRIDO.X\main_lab7.c
+"69 C:\Users\Dell\Documents\UVG\3 Año\5 Semestre\Programación de Microcontroladores\Lab\Laboratorio7\LABORATORIO_7_GARRIDO.X\main_lab7.c
 [v _isr isr `II(v  1 e 1 0 ]
-"85
+"88
 [v _main main `(v  1 e 1 0 ]
-"102
+"105
 [v _RESET_TMR0 RESET_TMR0 `(v  1 e 1 0 ]
-"108
+"111
 [v _obtener_valor obtener_valor `(v  1 e 1 0 ]
-"114
-[v _TABLA TABLA `(uc  1 e 1 0 ]
-"155
+"117
+[v _TABLA_2 TABLA_2 `(uc  1 e 1 0 ]
+"165
 [v _set_display set_display `(v  1 e 1 0 ]
-"162
+"172
 [v _mostrar_valor mostrar_valor `(v  1 e 1 0 ]
 "10 C:\Users\Dell\Documents\UVG\3 Año\5 Semestre\Programación de Microcontroladores\Lab\Laboratorio7\LABORATORIO_7_GARRIDO.X\setup_lab7.c
 [v _setup setup `(v  1 e 1 0 ]
@@ -82,7 +82,7 @@
 ]
 [u S36 . 1 `S22 1 . 1 0 `S31 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES36  1 e 1 @11 ]
-[s S216 . 1 `uc 1 PS 1 0 :3:0 
+[s S221 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -90,12 +90,12 @@
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1367
-[s S223 . 1 `uc 1 PS0 1 0 :1:0 
+[s S228 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S227 . 1 `S216 1 . 1 0 `S223 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES227  1 e 1 @129 ]
+[u S232 . 1 `S221 1 . 1 0 `S228 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES232  1 e 1 @129 ]
 "1417
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1479
@@ -104,20 +104,20 @@
 [v _TRISC TRISC `VEuc  1 e 1 @135 ]
 "1603
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
-[s S183 . 1 `uc 1 SCS 1 0 :1:0 
+[s S188 . 1 `uc 1 SCS 1 0 :1:0 
 `uc 1 LTS 1 0 :1:1 
 `uc 1 HTS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 ]
 "1883
-[s S189 . 1 `uc 1 . 1 0 :4:0 
+[s S194 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[u S194 . 1 `S183 1 . 1 0 `S189 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES194  1 e 1 @143 ]
+[u S199 . 1 `S188 1 . 1 0 `S194 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES199  1 e 1 @143 ]
 "2347
 [v _WPUB WPUB `VEuc  1 e 1 @149 ]
 "2417
@@ -132,44 +132,35 @@
 [v _valores valores `[3]uc  1 e 3 0 ]
 "53
 [v _display display `[3]uc  1 e 3 0 ]
-"85
+"55
+[v _TABLA TABLA `[16]uc  1 e 16 0 ]
+"88
 [v _main main `(v  1 e 1 0 ]
 {
-"92
+"95
 } 0
 "10 C:\Users\Dell\Documents\UVG\3 Año\5 Semestre\Programación de Microcontroladores\Lab\Laboratorio7\LABORATORIO_7_GARRIDO.X\setup_lab7.c
 [v _setup setup `(v  1 e 1 0 ]
 {
 "40
 } 0
-"155 C:\Users\Dell\Documents\UVG\3 Año\5 Semestre\Programación de Microcontroladores\Lab\Laboratorio7\LABORATORIO_7_GARRIDO.X\main_lab7.c
+"165 C:\Users\Dell\Documents\UVG\3 Año\5 Semestre\Programación de Microcontroladores\Lab\Laboratorio7\LABORATORIO_7_GARRIDO.X\main_lab7.c
 [v _set_display set_display `(v  1 e 1 0 ]
 {
 [v set_display@VALORES0 VALORES0 `uc  1 a 1 wreg ]
 [v set_display@VALORES0 VALORES0 `uc  1 a 1 wreg ]
-[v set_display@VALORES1 VALORES1 `uc  1 p 1 4 ]
-[v set_display@VALORES2 VALORES2 `uc  1 p 1 5 ]
-[v set_display@VALORES0 VALORES0 `uc  1 a 1 7 ]
-"160
+[v set_display@VALORES1 VALORES1 `uc  1 p 1 0 ]
+[v set_display@VALORES2 VALORES2 `uc  1 p 1 1 ]
+[v set_display@VALORES0 VALORES0 `uc  1 a 1 3 ]
+"170
 } 0
-"114
-[v _TABLA TABLA `(uc  1 e 1 0 ]
-{
-[v TABLA@VALOR VALOR `uc  1 a 1 wreg ]
-"115
-[v TABLA@i i `uc  1 a 1 3 ]
-"114
-[v TABLA@VALOR VALOR `uc  1 a 1 wreg ]
-[v TABLA@VALOR VALOR `uc  1 a 1 2 ]
-"153
-} 0
-"108
+"111
 [v _obtener_valor obtener_valor `(v  1 e 1 0 ]
 {
 [v obtener_valor@VALOR VALOR `uc  1 a 1 wreg ]
 [v obtener_valor@VALOR VALOR `uc  1 a 1 wreg ]
 [v obtener_valor@VALOR VALOR `uc  1 a 1 19 ]
-"112
+"115
 } 0
 "15 C:\Program Files\Microchip\xc8\v2.35\pic\sources\c90\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -207,27 +198,27 @@
 [v ___awdiv@dividend dividend `i  1 p 2 8 ]
 "41
 } 0
-"66 C:\Users\Dell\Documents\UVG\3 Año\5 Semestre\Programación de Microcontroladores\Lab\Laboratorio7\LABORATORIO_7_GARRIDO.X\main_lab7.c
+"69 C:\Users\Dell\Documents\UVG\3 Año\5 Semestre\Programación de Microcontroladores\Lab\Laboratorio7\LABORATORIO_7_GARRIDO.X\main_lab7.c
 [v _isr isr `II(v  1 e 1 0 ]
 {
-"80
+"83
 } 0
-"162
+"172
 [v _mostrar_valor mostrar_valor `(v  1 e 1 0 ]
 {
 [v mostrar_valor@DISPLAY0 DISPLAY0 `uc  1 a 1 wreg ]
 [v mostrar_valor@DISPLAY0 DISPLAY0 `uc  1 a 1 wreg ]
 [v mostrar_valor@DISPLAY1 DISPLAY1 `uc  1 p 1 0 ]
 [v mostrar_valor@DISPLAY2 DISPLAY2 `uc  1 p 1 1 ]
-"164
+"174
 [v mostrar_valor@DISPLAY0 DISPLAY0 `uc  1 a 1 4 ]
-"191
+"201
 } 0
-"102
+"105
 [v _RESET_TMR0 RESET_TMR0 `(v  1 e 1 0 ]
 {
 [v RESET_TMR0@TMR_VAR TMR_VAR `uc  1 a 1 wreg ]
 [v RESET_TMR0@TMR_VAR TMR_VAR `uc  1 a 1 wreg ]
 [v RESET_TMR0@TMR_VAR TMR_VAR `uc  1 a 1 0 ]
-"106
+"109
 } 0

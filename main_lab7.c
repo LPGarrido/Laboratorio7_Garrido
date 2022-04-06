@@ -51,12 +51,12 @@ uint8_t conteo = 0;             // LAB sirve para el conteo cada 100ms
 uint8_t banderas = 0;           // banderas para el display
 uint8_t valores[3]={0,0,0};     // unidades, decenas y centenas del valor
 uint8_t display[3]={0,0,0};     // valor a colocar en los displays
+uint8_t TABLA[16]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71};
 /*------------------------------------------------------------------------------
  * PROTOTIPO DE FUNCIONES 
  ------------------------------------------------------------------------------*/
 void RESET_TMR0(uint8_t TMR_VAR);   // resetear tmr0
 void obtener_valor(uint8_t VALOR);  // obtener uni,dec,cen del valor
-uint8_t TABLA(uint8_t VALOR);       // Tabla para saber que valor del display
 void set_display(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2);     // Seleccionar valor para el display
 void mostrar_valor(uint8_t DISPLAY0, uint8_t DISPLAY1, uint8_t DISPLAY2);   // Mostrar valor en el display
 
@@ -111,51 +111,10 @@ void obtener_valor(uint8_t VALOR){
     valores[0] = VALOR-valores[2]*100-valores[1]*10;    // unidades
 }
 
-uint8_t TABLA(uint8_t VALOR){
-    uint8_t i=VALOR;
-    switch (i)
-     {
-          case 0:
-             return 0b00111111;     // 0
-          case 1:
-             return 0b00000110;     // 1
-          case 2:
-             return 0b01011011;     // 2
-          case 3:
-             return 0b01001111;     // 3
-          case 4:
-             return 0b01100110;     // 4
-          case 5:
-             return 0b01101101;     // 5
-          case 6:
-             return 0b01111101;     // 6
-          case 7:
-             return 0b00000111;     // 7
-          case 8:
-             return 0b01111111;     // 8
-          case 9:
-             return 0b01101111;     // 9
-          case 10:
-             return 0b01110111;     // A
-          case 11:
-             return 0b01111100;     // B
-          case 12:
-             return 0b00111001;     // C
-          case 13:
-             return 0b01011110;     // D
-          case 14:
-             return 0b01111001;     // E
-          case 15:
-             return 0b01110001;     // F
-          default:
-             return 0b10000000;     // default
-     }
-}
-
 void set_display(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2){
-    display[0] = TABLA(VALORES2);       // valor del display para cen
-    display[1] = TABLA(VALORES1);       // valor del display para dec
-    display[2] = TABLA(VALORES0);       // valor del display para uni
+    display[0] = TABLA[VALORES2];       // valor del display para cen
+    display[1] = TABLA[VALORES1];       // valor del display para dec
+    display[2] = TABLA[VALORES0];       // valor del display para uni
     return;
 }
 

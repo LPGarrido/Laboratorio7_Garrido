@@ -2659,12 +2659,15 @@ uint8_t banderas = 0;
 uint8_t valores[3]={0,0,0};
 uint8_t display[3]={0,0,0};
 
+uint8_t TABLA[16]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71};
+
 
 
 void RESET_TMR0(uint8_t TMR_VAR);
 void obtener_valor(uint8_t VALOR);
-uint8_t TABLA(uint8_t VALOR);
+uint8_t TABLA_2(uint8_t VALOR);
 void set_display(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2);
+void set_display_2(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2);
 void mostrar_valor(uint8_t DISPLAY0, uint8_t DISPLAY1, uint8_t DISPLAY2);
 
 
@@ -2697,7 +2700,7 @@ void main(void) {
     }
     return;
 }
-# 102 "main_lab7.c"
+# 105 "main_lab7.c"
 void RESET_TMR0(uint8_t TMR_VAR){
     TMR0 = TMR_VAR;
     INTCONbits.T0IF = 0;
@@ -2710,7 +2713,7 @@ void obtener_valor(uint8_t VALOR){
     valores[0] = VALOR-valores[2]*100-valores[1]*10;
 }
 
-uint8_t TABLA(uint8_t VALOR){
+uint8_t TABLA_2(uint8_t VALOR){
     uint8_t i=VALOR;
     switch (i)
      {
@@ -2751,10 +2754,17 @@ uint8_t TABLA(uint8_t VALOR){
      }
 }
 
+void set_display_2(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2){
+    display[0] = TABLA_2(VALORES2);
+    display[1] = TABLA_2(VALORES1);
+    display[2] = TABLA_2(VALORES0);
+    return;
+}
+
 void set_display(uint8_t VALORES0, uint8_t VALORES1, uint8_t VALORES2){
-    display[0] = TABLA(VALORES2);
-    display[1] = TABLA(VALORES1);
-    display[2] = TABLA(VALORES0);
+    display[0] = TABLA[VALORES2];
+    display[1] = TABLA[VALORES1];
+    display[2] = TABLA[VALORES0];
     return;
 }
 
